@@ -18,7 +18,7 @@ namespace clipboard
     {
         List<RichTextBox> textBoxes = new List<RichTextBox>() ;
         int textboxnumber = 0;
-
+        int lasttextboxnumber = 0;
 
         public mainBoard()
           
@@ -32,7 +32,7 @@ namespace clipboard
             textBoxes.Add(rtBoard4);
             this.ActiveControl = debugText1;
 
-            foreach (RichTextBox tb in this.Controls.OfType<RichTextBox>())
+            foreach (RichTextBox tb in tableLayoutPanel1.Controls.OfType<RichTextBox>())
             {
                 tb.Enter += TextBox_GotFocus;
             }
@@ -50,14 +50,30 @@ namespace clipboard
                // int p = textBoxes.Count;
                // if (p == 0) { }
 
-
+                //this bit populates the clipboard for use
                 var clipboardText = Clipboard.GetText();
-                textBoxes[textboxnumber].Text = clipboardText;
 
-                debugText1.Text = textboxnumber.ToString();
-                debugText2.Text = textBoxes.Count.ToString();
-                // MessageBox.Show(clipboardText);
-                incrementtextboxnumber();
+                //this bit sets up a test comparison textbox, as I was finding that some Pc's copy twice to cliipboard when 
+                //ctrl+c was pressed, so I needed to dedupe it
+                RichTextBox chk = new RichTextBox();
+                chk.Text = clipboardText;
+                //and for some reason \r\n changes to \m when rendered in a textbox only on screen
+                if (textBoxes[lasttextboxnumber].Text.Replace("\r\n", "\n") != chk.Text.Replace("\r\n", "\n"))
+                {
+                    textBoxes[textboxnumber].Text = clipboardText;
+
+                    debugText1.Text = textboxnumber.ToString();
+                    debugText2.Text = lasttextboxnumber.ToString();
+                    //MessageBox.Show(clipboardText);
+                    //MessageBox.Show(textBoxes[textboxnumber].Text);
+                    
+                    
+                    textBoxes[lasttextboxnumber].BackColor = Color.Empty;
+                    lasttextboxnumber = textboxnumber;
+                    textBoxes[textboxnumber].BackColor = Color.LightYellow;
+                    incrementtextboxnumber();
+                }
+               // incrementtextboxnumber();
             };
 
 
@@ -81,14 +97,23 @@ namespace clipboard
         private void TextBox_GotFocus(object sender, EventArgs e)
         {
             focusedControl = (RichTextBox)sender;
+            RichTextBox chk = new RichTextBox();
             if (focusedControl.Text != "")
             {
               //  MessageBox.Show(focusedControl.Text);
+              //we need to stop the monitoring of clipboard changes if we are changing the clipboard intentionally. 
                 ClipboardMonitor.Stop();
-                Clipboard.SetText(focusedControl.Text);
+                Clipboard.SetText(focusedControl.Text);     
+                chk.BackColor = focusedControl.BackColor;
+                focusedControl.BackColor = Color.LightGreen;
+                focusedControl.Refresh();
+                System.Threading.Thread.Sleep(400);
+                focusedControl.BackColor = chk.BackColor;
+                focusedControl.Refresh();
                 this.ActiveControl = debugText1;
                 ClipboardMonitor.Start();
             }
+
         }
 
 
@@ -97,7 +122,7 @@ namespace clipboard
             if (focusedControl != null)
             {
 
-                focusedControl.Text += "1";
+               //focusedControl.Text += "1";
                 //MessageBox.Show(focusedControl.Text);
             }
 
@@ -115,6 +140,12 @@ namespace clipboard
         private void onTopChkbox_CheckedChanged(object sender, EventArgs e)
         {
             this.TopMost = onTopChkbox.Checked;
+        }
+
+        private void checkBoxBorderless_CheckedChanged(object sender, EventArgs e)
+        {
+            this.FormBorderStyle =
+                ((sender as CheckBox).Checked ? FormBorderStyle.None : FormBorderStyle.Sizable);
         }
     }
     
