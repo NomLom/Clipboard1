@@ -41,15 +41,16 @@
             // 
             this.rtBoard1.Location = new System.Drawing.Point(13, 13);
             this.rtBoard1.Name = "rtBoard1";
-            this.rtBoard1.Size = new System.Drawing.Size(160, 123);
+            this.rtBoard1.Size = new System.Drawing.Size(176, 125);
             this.rtBoard1.TabIndex = 0;
             this.rtBoard1.Text = "";
             // 
             // rtBoard2
             // 
-            this.rtBoard2.Location = new System.Drawing.Point(195, 13);
+            this.rtBoard2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtBoard2.Location = new System.Drawing.Point(194, 13);
             this.rtBoard2.Name = "rtBoard2";
-            this.rtBoard2.Size = new System.Drawing.Size(173, 123);
+            this.rtBoard2.Size = new System.Drawing.Size(176, 125);
             this.rtBoard2.TabIndex = 1;
             this.rtBoard2.Text = "";
             // 
@@ -69,17 +70,20 @@
             // 
             // rtBoard3
             // 
-            this.rtBoard3.Location = new System.Drawing.Point(13, 143);
+            this.rtBoard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtBoard3.Location = new System.Drawing.Point(13, 142);
             this.rtBoard3.Name = "rtBoard3";
-            this.rtBoard3.Size = new System.Drawing.Size(160, 196);
+            this.rtBoard3.Size = new System.Drawing.Size(176, 125);
             this.rtBoard3.TabIndex = 4;
             this.rtBoard3.Text = "";
             // 
             // rtBoard4
             // 
-            this.rtBoard4.Location = new System.Drawing.Point(195, 143);
+            this.rtBoard4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtBoard4.Location = new System.Drawing.Point(194, 142);
             this.rtBoard4.Name = "rtBoard4";
-            this.rtBoard4.Size = new System.Drawing.Size(173, 196);
+            this.rtBoard4.Size = new System.Drawing.Size(176, 125);
             this.rtBoard4.TabIndex = 5;
             this.rtBoard4.Text = "";
             // 
@@ -98,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 351);
+            this.ClientSize = new System.Drawing.Size(429, 278);
             this.Controls.Add(this.onTopChkbox);
             this.Controls.Add(this.rtBoard4);
             this.Controls.Add(this.rtBoard3);
