@@ -21,7 +21,6 @@ namespace clipboard
 
 
         public mainBoard()
-
           
 
         {
@@ -29,8 +28,16 @@ namespace clipboard
             // HandleCustomEvent();
             textBoxes.Add(rtBoard1);
             textBoxes.Add(rtBoard2);
+            textBoxes.Add(rtBoard3);
+            textBoxes.Add(rtBoard4);
+            this.ActiveControl = debugText1;
 
-            
+            foreach (RichTextBox tb in this.Controls.OfType<RichTextBox>())
+            {
+                tb.Enter += TextBox_GotFocus;
+            }
+
+
 
             for (int i = 0; i < textBoxes.Count; i++)
             {
@@ -65,8 +72,39 @@ namespace clipboard
             if ( textboxnumber >= textBoxes.Count)
             {
                 textboxnumber = 0;
+                this.ActiveControl = debugText1;
             }
         }
+
+        private RichTextBox focusedControl;
+
+        private void TextBox_GotFocus(object sender, EventArgs e)
+        {
+            focusedControl = (RichTextBox)sender;
+            if (focusedControl.Text != "")
+            {
+              //  MessageBox.Show(focusedControl.Text);
+                ClipboardMonitor.Stop();
+                Clipboard.SetText(focusedControl.Text);
+                this.ActiveControl = debugText1;
+                ClipboardMonitor.Start();
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (focusedControl != null)
+            {
+
+                focusedControl.Text += "1";
+                //MessageBox.Show(focusedControl.Text);
+            }
+
+        }
+
+
+
 
         void createNewBox()
         {
@@ -74,6 +112,10 @@ namespace clipboard
 
         }
 
+        private void onTopChkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = onTopChkbox.Checked;
+        }
     }
     
 }

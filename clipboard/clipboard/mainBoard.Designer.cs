@@ -32,6 +32,9 @@
             this.rtBoard2 = new System.Windows.Forms.RichTextBox();
             this.debugText1 = new System.Windows.Forms.TextBox();
             this.debugText2 = new System.Windows.Forms.TextBox();
+            this.rtBoard3 = new System.Windows.Forms.RichTextBox();
+            this.rtBoard4 = new System.Windows.Forms.RichTextBox();
+            this.onTopChkbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // rtBoard1
@@ -64,11 +67,41 @@
             this.debugText2.Size = new System.Drawing.Size(32, 20);
             this.debugText2.TabIndex = 3;
             // 
+            // rtBoard3
+            // 
+            this.rtBoard3.Location = new System.Drawing.Point(13, 143);
+            this.rtBoard3.Name = "rtBoard3";
+            this.rtBoard3.Size = new System.Drawing.Size(160, 196);
+            this.rtBoard3.TabIndex = 4;
+            this.rtBoard3.Text = "";
+            // 
+            // rtBoard4
+            // 
+            this.rtBoard4.Location = new System.Drawing.Point(195, 143);
+            this.rtBoard4.Name = "rtBoard4";
+            this.rtBoard4.Size = new System.Drawing.Size(173, 196);
+            this.rtBoard4.TabIndex = 5;
+            this.rtBoard4.Text = "";
+            // 
+            // onTopChkbox
+            // 
+            this.onTopChkbox.AutoSize = true;
+            this.onTopChkbox.Location = new System.Drawing.Point(375, 67);
+            this.onTopChkbox.Name = "onTopChkbox";
+            this.onTopChkbox.Size = new System.Drawing.Size(48, 17);
+            this.onTopChkbox.TabIndex = 6;
+            this.onTopChkbox.Text = "TOP";
+            this.onTopChkbox.UseVisualStyleBackColor = true;
+            this.onTopChkbox.CheckedChanged += new System.EventHandler(this.onTopChkbox_CheckedChanged);
+            // 
             // mainBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 351);
+            this.Controls.Add(this.onTopChkbox);
+            this.Controls.Add(this.rtBoard4);
+            this.Controls.Add(this.rtBoard3);
             this.Controls.Add(this.debugText2);
             this.Controls.Add(this.debugText1);
             this.Controls.Add(this.rtBoard2);
@@ -86,6 +119,9 @@
         private System.Windows.Forms.RichTextBox rtBoard2;
         private System.Windows.Forms.TextBox debugText1;
         private System.Windows.Forms.TextBox debugText2;
+        private System.Windows.Forms.RichTextBox rtBoard3;
+        private System.Windows.Forms.RichTextBox rtBoard4;
+        private System.Windows.Forms.CheckBox onTopChkbox;
     }
 }
 
