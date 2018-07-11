@@ -20,7 +20,7 @@ namespace clipboard
         {
             public ClipboardMonitorWindow()
             {
-                // Set this window as a message-only window.
+                // Set this window as a message-only window. 
                 NativeMethods.SetParent(Handle, new IntPtr(-3)); // HWND_MESSAGE
 
                 Start();
