@@ -19,6 +19,7 @@ namespace clipboard
         List<RichTextBox> textBoxes = new List<RichTextBox>() ;
         int textboxnumber = 0;
         int lasttextboxnumber = 0;
+        
 
         public mainBoard()
           
@@ -146,6 +147,9 @@ namespace clipboard
         {
             this.FormBorderStyle =
                 ((sender as CheckBox).Checked ? FormBorderStyle.None : FormBorderStyle.Sizable);
+            //this.TransparencyKey = Color.Grey;
+            this.TransparencyKey =
+                ((sender as CheckBox).Checked ? SystemColors.Control : Color.Empty);
         }
     }
     
