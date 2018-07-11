@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace clipboard
 {
 
+ 
     
 
     public partial class mainBoard : Form
@@ -19,13 +20,21 @@ namespace clipboard
         List<RichTextBox> textBoxes = new List<RichTextBox>() ;
         int textboxnumber = 0;
         int lasttextboxnumber = 0;
-        
+        public Color colorPasteFlash = Color.LightGreen;
+        public Color colorCurrentHighlight = Color.LightYellow;
+        public Color colourTextBox = Color.White;
+        public Color colourForeColour = SystemColors.ControlText;
+        public Color colourBackColour = SystemColors.Control;
+
+
+
 
         public mainBoard()
           
 
         {
             InitializeComponent();
+            //this.BackColor = SystemColors.Control;
             // HandleCustomEvent();
             textBoxes.Add(rtBoard1);
             textBoxes.Add(rtBoard2);
@@ -69,9 +78,9 @@ namespace clipboard
                     //MessageBox.Show(textBoxes[textboxnumber].Text);
                     
                     
-                    textBoxes[lasttextboxnumber].BackColor = Color.Empty;
+                    textBoxes[lasttextboxnumber].BackColor = colourTextBox;
                     lasttextboxnumber = textboxnumber;
-                    textBoxes[textboxnumber].BackColor = Color.LightYellow;
+                    textBoxes[textboxnumber].BackColor = colorCurrentHighlight;
                     incrementtextboxnumber();
                 }
                // incrementtextboxnumber();
@@ -82,6 +91,9 @@ namespace clipboard
 
 
         }
+
+
+
 
         public void incrementtextboxnumber()
         {
@@ -106,7 +118,7 @@ namespace clipboard
                 ClipboardMonitor.Stop();
                 Clipboard.SetText(focusedControl.Text);     
                 chk.BackColor = focusedControl.BackColor;
-                focusedControl.BackColor = Color.LightGreen;
+                focusedControl.BackColor = colorPasteFlash;
                 focusedControl.Refresh();
                 System.Threading.Thread.Sleep(400);
                 focusedControl.BackColor = chk.BackColor;
@@ -148,8 +160,30 @@ namespace clipboard
             this.FormBorderStyle =
                 ((sender as CheckBox).Checked ? FormBorderStyle.None : FormBorderStyle.Sizable);
             //this.TransparencyKey = Color.Grey;
-            this.TransparencyKey =
-                ((sender as CheckBox).Checked ? SystemColors.Control : Color.Empty);
+            this.Opacity =
+                ((sender as CheckBox).Checked ? 0.6 : 1);
+            //this.Opacity = 0.7;
+
+        }
+
+        private void drkCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ForeColor = ((sender as CheckBox).Checked ? SystemColors.ControlLight : SystemColors.ControlText);
+            this.BackColor = ((sender as CheckBox).Checked ? Color.Black : SystemColors.Control);
+            colorCurrentHighlight = ((sender as CheckBox).Checked ? Color.DarkSlateGray : Color.LightYellow);
+            colourTextBox = ((sender as CheckBox).Checked ? Color.Black : Color.White);
+            textBoxes[lasttextboxnumber].BackColor = colorCurrentHighlight;
+
+
+            foreach (var elem in textBoxes)
+            {
+                if (elem is RichTextBox)
+                {
+                    (elem as RichTextBox).BackColor = ((sender as CheckBox).Checked ? Color.Black : Color.White);
+                    (elem as RichTextBox).ForeColor = ((sender as CheckBox).Checked ? Color.LightGreen : SystemColors.ControlText);
+                    
+    }
+            }
         }
     }
     

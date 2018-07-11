@@ -37,12 +37,13 @@
             this.rtBoard4 = new System.Windows.Forms.RichTextBox();
             this.onTopChkbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBoxBorderless = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.drkCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtBoard1
@@ -50,16 +51,16 @@
             this.rtBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtBoard1.Location = new System.Drawing.Point(3, 3);
             this.rtBoard1.Name = "rtBoard1";
-            this.rtBoard1.Size = new System.Drawing.Size(189, 129);
+            this.rtBoard1.Size = new System.Drawing.Size(99, 75);
             this.rtBoard1.TabIndex = 0;
             this.rtBoard1.Text = "";
             // 
             // rtBoard2
             // 
             this.rtBoard2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtBoard2.Location = new System.Drawing.Point(198, 3);
+            this.rtBoard2.Location = new System.Drawing.Point(108, 3);
             this.rtBoard2.Name = "rtBoard2";
-            this.rtBoard2.Size = new System.Drawing.Size(189, 129);
+            this.rtBoard2.Size = new System.Drawing.Size(99, 75);
             this.rtBoard2.TabIndex = 1;
             this.rtBoard2.Text = "";
             // 
@@ -72,7 +73,7 @@
             // 
             // debugText2
             // 
-            this.debugText2.Location = new System.Drawing.Point(3, 68);
+            this.debugText2.Location = new System.Drawing.Point(3, 40);
             this.debugText2.Name = "debugText2";
             this.debugText2.Size = new System.Drawing.Size(26, 20);
             this.debugText2.TabIndex = 3;
@@ -80,25 +81,26 @@
             // rtBoard3
             // 
             this.rtBoard3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtBoard3.Location = new System.Drawing.Point(3, 138);
+            this.rtBoard3.Location = new System.Drawing.Point(3, 84);
             this.rtBoard3.Name = "rtBoard3";
-            this.rtBoard3.Size = new System.Drawing.Size(189, 130);
+            this.rtBoard3.Size = new System.Drawing.Size(99, 75);
             this.rtBoard3.TabIndex = 4;
             this.rtBoard3.Text = "";
             // 
             // rtBoard4
             // 
             this.rtBoard4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtBoard4.Location = new System.Drawing.Point(198, 138);
+            this.rtBoard4.Location = new System.Drawing.Point(108, 84);
             this.rtBoard4.Name = "rtBoard4";
-            this.rtBoard4.Size = new System.Drawing.Size(189, 130);
+            this.rtBoard4.Size = new System.Drawing.Size(99, 75);
             this.rtBoard4.TabIndex = 5;
             this.rtBoard4.Text = "";
             // 
             // onTopChkbox
             // 
             this.onTopChkbox.AutoSize = true;
-            this.onTopChkbox.Location = new System.Drawing.Point(3, 3);
+            this.onTopChkbox.Location = new System.Drawing.Point(2, 2);
+            this.onTopChkbox.Margin = new System.Windows.Forms.Padding(2);
             this.onTopChkbox.Name = "onTopChkbox";
             this.onTopChkbox.Size = new System.Drawing.Size(48, 17);
             this.onTopChkbox.TabIndex = 6;
@@ -124,8 +126,37 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 271);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 162);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.checkBoxBorderless, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.onTopChkbox, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.drkCheckbox, 0, 2);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(210, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(54, 81);
+            this.tableLayoutPanel3.TabIndex = 8;
+            // 
+            // checkBoxBorderless
+            // 
+            this.checkBoxBorderless.AutoSize = true;
+            this.checkBoxBorderless.Location = new System.Drawing.Point(2, 29);
+            this.checkBoxBorderless.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxBorderless.Name = "checkBoxBorderless";
+            this.checkBoxBorderless.Size = new System.Drawing.Size(48, 17);
+            this.checkBoxBorderless.TabIndex = 9;
+            this.checkBoxBorderless.Text = "ANC";
+            this.checkBoxBorderless.UseVisualStyleBackColor = true;
+            this.checkBoxBorderless.CheckedChanged += new System.EventHandler(this.checkBoxBorderless_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -134,55 +165,40 @@
             this.tableLayoutPanel2.Controls.Add(this.debugText2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.debugText1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(393, 138);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(213, 84);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(32, 130);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(32, 75);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // tableLayoutPanel3
+            // drkCheckbox
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.checkBoxBorderless, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.onTopChkbox, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(390, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(54, 97);
-            this.tableLayoutPanel3.TabIndex = 8;
-            // 
-            // checkBoxBorderless
-            // 
-            this.checkBoxBorderless.AutoSize = true;
-            this.checkBoxBorderless.Location = new System.Drawing.Point(3, 35);
-            this.checkBoxBorderless.Name = "checkBoxBorderless";
-            this.checkBoxBorderless.Size = new System.Drawing.Size(48, 17);
-            this.checkBoxBorderless.TabIndex = 9;
-            this.checkBoxBorderless.Text = "ANC";
-            this.checkBoxBorderless.UseVisualStyleBackColor = true;
-            this.checkBoxBorderless.CheckedChanged += new System.EventHandler(this.checkBoxBorderless_CheckedChanged);
+            this.drkCheckbox.AutoSize = true;
+            this.drkCheckbox.Location = new System.Drawing.Point(2, 56);
+            this.drkCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.drkCheckbox.Name = "drkCheckbox";
+            this.drkCheckbox.Size = new System.Drawing.Size(49, 17);
+            this.drkCheckbox.TabIndex = 10;
+            this.drkCheckbox.Text = "DRK";
+            this.drkCheckbox.UseVisualStyleBackColor = true;
+            this.drkCheckbox.CheckedChanged += new System.EventHandler(this.drkCheckbox_CheckedChanged);
             // 
             // mainBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 271);
+            this.ClientSize = new System.Drawing.Size(265, 162);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainBoard";
             this.Text = "Clipboard";
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +216,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.CheckBox checkBoxBorderless;
+        private System.Windows.Forms.CheckBox drkCheckbox;
     }
 }
 
