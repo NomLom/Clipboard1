@@ -1,6 +1,6 @@
 ﻿namespace clipboard
 {
-    partial class mainBoard
+    partial class MainBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainBoard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBoard));
             this.rtBoard1 = new System.Windows.Forms.RichTextBox();
             this.rtBoard2 = new System.Windows.Forms.RichTextBox();
             this.debugText1 = new System.Windows.Forms.TextBox();
@@ -106,7 +106,7 @@
             this.onTopChkbox.TabIndex = 6;
             this.onTopChkbox.Text = "TOP";
             this.onTopChkbox.UseVisualStyleBackColor = true;
-            this.onTopChkbox.CheckedChanged += new System.EventHandler(this.onTopChkbox_CheckedChanged);
+            this.onTopChkbox.CheckedChanged += new System.EventHandler(this.OnTopChkbox_CheckedChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -156,7 +156,7 @@
             this.checkBoxBorderless.TabIndex = 9;
             this.checkBoxBorderless.Text = "ANC";
             this.checkBoxBorderless.UseVisualStyleBackColor = true;
-            this.checkBoxBorderless.CheckedChanged += new System.EventHandler(this.checkBoxBorderless_CheckedChanged);
+            this.checkBoxBorderless.CheckedChanged += new System.EventHandler(this.CheckBoxBorderless_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -183,7 +183,7 @@
             this.drkCheckbox.TabIndex = 10;
             this.drkCheckbox.Text = "DRK";
             this.drkCheckbox.UseVisualStyleBackColor = true;
-            this.drkCheckbox.CheckedChanged += new System.EventHandler(this.drkCheckbox_CheckedChanged);
+            this.drkCheckbox.CheckedChanged += new System.EventHandler(this.DrkCheckbox_CheckedChanged);
             // 
             // mainBoard
             // 
@@ -192,7 +192,7 @@
             this.ClientSize = new System.Drawing.Size(265, 162);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "mainBoard";
+            this.Name = "MainBoard";
             this.Text = "Clipboard";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
