@@ -15,13 +15,18 @@ namespace clipboard
     public partial class MainBoard : Form
     {
         private readonly List<RichTextBox> _textBoxes = new List<RichTextBox>() ;
+        public List<String> _textBoxHistory = new List<String>();
+        
         private int _textboxnumber;
         private int _lasttextboxnumber;
+        private int _historyBoxNumber = 0;
         public Color ColorPasteFlash = Color.LightGreen;
         public Color ColorCurrentHighlight = Color.LightYellow;
         public Color ColourTextBox = Color.White;
         //public Color ColourForeColour = SystemColors.ControlText;
         //public Color ColourBackColour = SystemColors.Control;
+        private BindingSource bindingSource1;
+
 
         public MainBoard()
 
@@ -34,6 +39,11 @@ namespace clipboard
             _textBoxes.Add(rtBoard3);
             _textBoxes.Add(rtBoard4);
             ActiveControl = debugText1;
+
+            for (int i = 0; i < 20; i++)
+            {
+                _textBoxHistory.Add(String.Empty);
+            }
 
             foreach (var tb in tableLayoutPanel1.Controls.OfType<RichTextBox>())
             {
@@ -59,8 +69,13 @@ namespace clipboard
                 //and for some reason \r\n changes to \m when rendered in a textbox only on screen
                 if ((_textBoxes[_lasttextboxnumber].Text.Replace("\r\n", "\n") == chk.Text.Replace("\r\n", "\n")) ||
                     (string.IsNullOrEmpty(clipboardText))) return;
+                if (_textBoxes[_textboxnumber].Text != "")
+                {
+                    _textBoxHistory[_historyBoxNumber] = (_textBoxes[_textboxnumber].Text);
+                    IncrementHistoryBoxNumber();
+                }
                 _textBoxes[_textboxnumber].Text = clipboardText;
-                debugText1.Text = _textboxnumber.ToString();
+                debugText1.Text = _historyBoxNumber.ToString(); // _textboxnumber.ToString();
                 debugText2.Text = _lasttextboxnumber.ToString();
                 _textBoxes[_lasttextboxnumber].BackColor = ColourTextBox;
                 _lasttextboxnumber = _textboxnumber;
@@ -68,6 +83,14 @@ namespace clipboard
                 Incrementtextboxnumber();
                 // incrementtextboxnumber();
             };
+        }
+
+        public void IncrementHistoryBoxNumber()
+        {
+           
+            _historyBoxNumber++;
+            if (_historyBoxNumber < 20) return;
+            _historyBoxNumber = 0;
         }
 
         public void Incrementtextboxnumber()
