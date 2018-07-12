@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -8,3 +8,4 @@
 /clipboard/clipboard/bin/Debug
 /clipboard/clipboard/obj/Debug
 /clipboard/.vs/clipboard/v15/.suo
+clipboard/clipboard/bin/Release/
