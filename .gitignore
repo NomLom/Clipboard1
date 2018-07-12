@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/clipboard/.vs/clipboard/DesignTimeBuild/.dtbcache
+/clipboard/.vs/clipboard/v14/.suo
+/clipboard/.vs/clipboard/v15/Server/sqlite3
+/clipboard/clipboard/bin/Debug
+/clipboard/clipboard/obj/Debug
+/clipboard/.vs/clipboard/v15/.suo

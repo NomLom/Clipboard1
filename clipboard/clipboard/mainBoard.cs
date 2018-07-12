@@ -119,11 +119,15 @@ namespace clipboard
                 Clipboard.SetText(focusedControl.Text);     
                 chk.BackColor = focusedControl.BackColor;
                 focusedControl.BackColor = colorPasteFlash;
-                focusedControl.Refresh();
+                Application.DoEvents();
+                //focusedControl.Refresh();
                 System.Threading.Thread.Sleep(400);
+                
                 focusedControl.BackColor = chk.BackColor;
+                Application.DoEvents();
+                MessageBox.Show(focusedControl.Name.ToString());
                 focusedControl.Refresh();
-                this.ActiveControl = debugText1;
+                //this.ActiveControl = debugText1;
                 ClipboardMonitor.Start();
             }
 
@@ -136,7 +140,7 @@ namespace clipboard
             {
 
                //focusedControl.Text += "1";
-                //MessageBox.Show(focusedControl.Text);
+                MessageBox.Show(focusedControl.Text);
             }
 
         }
