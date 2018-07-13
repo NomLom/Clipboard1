@@ -39,8 +39,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBoxBorderless = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.drkCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -120,7 +121,6 @@
             this.tableLayoutPanel1.Controls.Add(this.rtBoard2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.rtBoard3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.rtBoard4, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -158,6 +158,18 @@
             this.checkBoxBorderless.UseVisualStyleBackColor = true;
             this.checkBoxBorderless.CheckedChanged += new System.EventHandler(this.CheckBoxBorderless_CheckedChanged);
             // 
+            // drkCheckbox
+            // 
+            this.drkCheckbox.AutoSize = true;
+            this.drkCheckbox.Location = new System.Drawing.Point(2, 56);
+            this.drkCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.drkCheckbox.Name = "drkCheckbox";
+            this.drkCheckbox.Size = new System.Drawing.Size(49, 17);
+            this.drkCheckbox.TabIndex = 10;
+            this.drkCheckbox.Text = "DRK";
+            this.drkCheckbox.UseVisualStyleBackColor = true;
+            this.drkCheckbox.CheckedChanged += new System.EventHandler(this.DrkCheckbox_CheckedChanged);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -173,23 +185,22 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(32, 75);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // drkCheckbox
+            // button1
             // 
-            this.drkCheckbox.AutoSize = true;
-            this.drkCheckbox.Location = new System.Drawing.Point(2, 56);
-            this.drkCheckbox.Margin = new System.Windows.Forms.Padding(2);
-            this.drkCheckbox.Name = "drkCheckbox";
-            this.drkCheckbox.Size = new System.Drawing.Size(49, 17);
-            this.drkCheckbox.TabIndex = 10;
-            this.drkCheckbox.Text = "DRK";
-            this.drkCheckbox.UseVisualStyleBackColor = true;
-            this.drkCheckbox.CheckedChanged += new System.EventHandler(this.DrkCheckbox_CheckedChanged);
+            this.button1.Location = new System.Drawing.Point(216, 212);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // mainBoard
+            // MainBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 162);
+            this.ClientSize = new System.Drawing.Size(373, 277);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainBoard";
@@ -217,6 +228,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.CheckBox checkBoxBorderless;
         private System.Windows.Forms.CheckBox drkCheckbox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

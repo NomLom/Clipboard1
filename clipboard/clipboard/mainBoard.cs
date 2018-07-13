@@ -31,6 +31,7 @@ namespace clipboard
         public MainBoard()
 
         {
+            
             InitializeComponent();
             //this.BackColor = SystemColors.Control;
             // HandleCustomEvent();
@@ -73,6 +74,7 @@ namespace clipboard
                 {
                     _textBoxHistory[_historyBoxNumber] = (_textBoxes[_textboxnumber].Text);
                     IncrementHistoryBoxNumber();
+                    this.NotifyPropertyChanged("_textBoxHistory");
                 }
                 _textBoxes[_textboxnumber].Text = clipboardText;
                 debugText1.Text = _historyBoxNumber.ToString(); // _textboxnumber.ToString();
@@ -82,6 +84,7 @@ namespace clipboard
                 _textBoxes[_textboxnumber].BackColor = ColorCurrentHighlight;
                 Incrementtextboxnumber();
                 // incrementtextboxnumber();
+                //HistoryForm1.hi = _textBoxHistory;
             };
         }
 
@@ -155,6 +158,31 @@ namespace clipboard
                 elem.BackColor = (sender != null && ((CheckBox) sender).Checked ? Color.Black : Color.White);
                 elem.ForeColor = (sender != null && ((CheckBox) sender).Checked ? Color.LightGreen : SystemColors.ControlText);
             }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+
+            HistoryForm1 frm2 = new HistoryForm1();
+            frm2.Show();
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            HistoryForm1 frm2 = new HistoryForm1();
+            frm2.Show();
+            
         }
     }
     
