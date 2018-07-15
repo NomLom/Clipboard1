@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,8 +16,8 @@ namespace clipboard
     public partial class MainBoard : Form
     {
         private readonly List<RichTextBox> _textBoxes = new List<RichTextBox>() ;
-        public List<String> _textBoxHistory = new List<String>();
-        
+        public ObservableCollection<String> _textBoxHistory = new ObservableCollection<String>();
+        private HistoryForm1 frm2;
         private int _textboxnumber;
         private int _lasttextboxnumber;
         private int _historyBoxNumber = 0;
@@ -25,13 +26,16 @@ namespace clipboard
         public Color ColourTextBox = Color.White;
         //public Color ColourForeColour = SystemColors.ControlText;
         //public Color ColourBackColour = SystemColors.Control;
-        private BindingSource bindingSource1;
+        public BindingSource bindingSource1;
+        
 
 
         public MainBoard()
 
         {
-            
+            bindingSource1 = new BindingSource();
+            bindingSource1.DataSource = _textBoxHistory;
+
             InitializeComponent();
             //this.BackColor = SystemColors.Control;
             // HandleCustomEvent();
@@ -74,7 +78,10 @@ namespace clipboard
                 {
                     _textBoxHistory[_historyBoxNumber] = (_textBoxes[_textboxnumber].Text);
                     IncrementHistoryBoxNumber();
-                    this.NotifyPropertyChanged("_textBoxHistory");
+                    if (frm2 != null)
+                    {
+                        frm2.updateHistory();
+                    };
                 }
                 _textBoxes[_textboxnumber].Text = clipboardText;
                 debugText1.Text = _historyBoxNumber.ToString(); // _textboxnumber.ToString();
@@ -161,14 +168,14 @@ namespace clipboard
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        /*private void button1_Click(object sender, EventArgs e)
         {
             
 
 
             HistoryForm1 frm2 = new HistoryForm1();
             frm2.Show();
-        }
+        }  */
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -180,7 +187,7 @@ namespace clipboard
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            HistoryForm1 frm2 = new HistoryForm1();
+             frm2 = new HistoryForm1(this);
             frm2.Show();
             
         }
